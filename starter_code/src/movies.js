@@ -133,19 +133,19 @@
  //console.log(movies);
   // hours to minutes
 //1h == 60 min
-const tiempoMinutosTotales = () => {
+const turnHoursToMinutes = () => {
 const getHoraMovie = (movieHour) => movieHour.map((data, idx, arr) => parseInt(data.duration, 10) * 60  );
 //console.log(getHoraMovie(movies));
 const getMinuteMovie = (movieMinute) => movieMinute.map((data, idx, arr) => parseInt(data.duration.slice(3)));
 //console.log(getMinuteMovie(movies));
 const totalTimeMovies = (totalMinutes1, totalMinutes2) => totalMinutes1.map((minutes, idx) => minutes + totalMinutes2[idx]);
 //console.log(totalTimeMovies(getHoraMovie(movies), getMinuteMovie(movies)).map((data) => data + 'min').toString(`${totalTimeMovies}`));
-const finalTimeString = (addMinLetters) => addMinLetters.map((data) => data + 'min').toString(`${addMinLetters}`);
+const finalTimeString = (addMinLetters) => addMinLetters.map((data) => data + 'min')/* .toString(`${addMinLetters}` */;
 //console.log(finalTimeString(totalTimeMovies(getHoraMovie(movies), getMinuteMovie(movies))));
 
-return finalTimeString(totalTimeMovies(getHoraMovie(movies), getMinuteMovie(movies)));
+return finalTimeString (totalTimeMovies (getHoraMovie(movies), getMinuteMovie(movies)));
 };
-console.log(tiempoMinutosTotales());
+console.log(turnHoursToMinutes());
 
 //average rate
 
