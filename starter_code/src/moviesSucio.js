@@ -1,10 +1,29 @@
 /* eslint no-restricted-globals: 'off' */
+// Turn duration of the movies from hours to minutes 
+
+
+// Get the average of all rates with 2 decimals 
+
+
+// Get the average of Drama Movies
+
+
+// Order by time duration, in growing order
+
+
+// How many movies did STEVEN SPIELBERG
+
+
+// Order by title and print the first 20 titles
+
+
+// Best yearly rate average
 
 //import movies from "../src/data";
 
 
 
- var movies = [
+var movies = [
     {
       title: 'The Shawshank Redemption',
       year: '1994',
@@ -119,22 +138,24 @@
     },
 
  ];
- // Turn duration of the movies from hours to minutes 
+ //console.log(movies);
+  // hours to minutes
+//1h == 60 min
+//const turnHoursToMinutes = () => {
+const getHoraMovie = (movieHour) => movieHour.map((data, idx, arr) => parseInt(data.duration, 10) * 60  );
+console.log(getHoraMovie(movies));
+const getMinuteMovie = (movieMinute) => movieMinute.map((data, idx, arr) => parseInt(data.duration.slice(3)));
+console.log(getMinuteMovie(movies));
+const totalTimeMovies = (totalMinutes1, totalMinutes2) => totalMinutes1.map((minutes, idx) => minutes + totalMinutes2[idx]);
+console.log(totalTimeMovies(getHoraMovie(movies), getMinuteMovie(movies)).map((data) => data + 'min').toString(`${totalTimeMovies}`));
+const finalTimeString = (addMinLetters) => addMinLetters.map((data) => data + 'min')/* .toString(`${addMinLetters}` */;
+console.log(finalTimeString(totalTimeMovies(getHoraMovie(movies), getMinuteMovie(movies))));
 
- const getHoraMovie = (movieHour) => movieHour.map((data, idx, arr) => parseInt(data.duration, 10) * 60  );
- console.log(getHoraMovie(movies));
+//return finalTimeString (totalTimeMovies (getHoraMovie(movies), getMinuteMovie(movies)));
+//};
+//console.log(turnHoursToMinutes());
 
- const getMinuteMovie = (movieMinute) => movieMinute.map((data, idx, arr) => parseInt(data.duration.slice(3)));
- console.log(getMinuteMovie(movies));
-
- const totalTimeMovies = (totalMinutes1, totalMinutes2) => totalMinutes1.map((minutes, idx) => minutes + totalMinutes2[idx]);
- console.log(totalTimeMovies(getHoraMovie(movies), getMinuteMovie(movies)).map((data) => data + 'min').toString(`${totalTimeMovies}`));
-
- const finalTimeString = (addMinLetters) => addMinLetters.map((data) => data + 'min');
- console.log(finalTimeString(totalTimeMovies(getHoraMovie(movies), getMinuteMovie(movies))));
- 
-
-// Get the average of all rates with 2 decimals 
+//average rate
 
 const getRate = (ratestring) => ratestring.map((data) => parseFloat(data.rate));//.reduce((a, b) => a + b, 0) / ratestring.length);
 console.log(getRate(movies));
@@ -145,8 +166,41 @@ console.log(getRateTwoDecimals(getRate(movies)));
 const averageValue = (arr) => arr.reduce((acumulador, puntuacion) => acumulador + puntuacion) / arr.length;
 console.log(averageValue(getRate(movies)).toFixed(1));
 
-// Get the average of Drama Movies
+// average drama
+// map array and search for drama title
 
+const drama = (arr) => arr.filter((nameGenre) => nameGenre.genre == ('Drama'));
+console.log(drama(movies));
+
+/* for (let i = 0;  i < movies.length; ++i){
+  console.log(movies[i]);
+} */
+
+//forEach
+//movies.forEach((movie) => console.log(movie));
+
+//filter
+const ages = [33, 12, 20, 31, 56, 9, 61, 44, 7, 20, 5, 89, 69, 22, 75, 92];
+
+let canDrink = [];
+for(let i = 0; i < ages.length; ++i){
+  if(ages[i] >= 21){
+    canDrink.push(ages[i]);
+  };
+};
+console.log(canDrink);
+
+//const beber = (arr) => arr.filter((age) => (age) ? age >= 21 : ('You cannot drink') );
+const beber1 = (arr) => arr.filter((age) => age >= 21);
+//console.log(beber(ages));
+console.log(beber1(ages));
+
+/* const dramaMovies = movies.filter(function(movie){
+  if(movie.genre.map((data) => data)){
+    return true;
+  };
+});
+console.log(dramaMovies); */
 const dramaMovies = (arr) => (arr).reduce((e, key) => e)
 console.log(dramaMovies(getRate(movies)));
 
@@ -154,26 +208,17 @@ const dramaMovies1 = (arr) => arr.filter(e => e.genre.includes("Drama"));
 console.log(dramaMovies1(movies));
 
 const averageValue1 = (arr) => arr.reduce((acumulador, puntuacion) => acumulador + puntuacion) / arr.length;
-console.log(averageValue1(getRate(dramaMovies1(movies))));
+console.log(averageValue1(getRate(dramaMovies1(movies))).toFixed(2));
+/* const flatter = (n) => (n).flat(2);
+        console.log(flatter(movies)); */
 
-// Order by time duration, in growing order
+//console.log(turnHoursToMinutes(movies));
 
 const totalTimeMovies1 = (totalMinutes3, totalMinutes4) => totalMinutes3.map((minutes, idx) => minutes + totalMinutes4[idx]);
 console.log(totalTimeMovies1(getHoraMovie(movies), getMinuteMovie(movies)));
 
 const orden = (arr) => arr.sort((a, b)  => b - a);
 console.log(orden(totalTimeMovies1(getHoraMovie(movies), getMinuteMovie(movies))));
-
-// How many movies did STEVEN SPIELBERG
-
+ 
 const nombre = (arr) => arr.filter((nameDirector) => nameDirector.director == ('Steven Spielberg'));
 console.log(nombre(movies));
-
-// Order by title and print the first 20 titles
-
-
-// Best yearly rate average
-
-// average drama
-// map array and search for drama title
-
