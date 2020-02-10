@@ -136,7 +136,7 @@
 
 // Get the average of all rates with 2 decimals 
 
-const getRate = (ratestring) => ratestring.map((data) => parseFloat(data.rate));//.reduce((a, b) => a + b, 0) / ratestring.length);
+const getRate = (ratestring) => ratestring.map((data) => parseFloat(data.rate));
 console.log(getRate(movies));
 
 const getRateTwoDecimals = (arr) => ((arr - Math.floor(arr)) !== 0) ? arr.reduce((acumulador, puntuacion) => acumulador + puntuacion) / arr.length : ('Error');
