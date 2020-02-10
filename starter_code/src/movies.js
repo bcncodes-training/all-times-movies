@@ -173,7 +173,3 @@ console.log(nombre(movies));
 
 
 // Best yearly rate average
-
-// average drama
-// map array and search for drama title
-
