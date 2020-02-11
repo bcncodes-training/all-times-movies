@@ -220,5 +220,9 @@ console.log(totalTimeMovies1(getHoraMovie(movies), getMinuteMovie(movies)));
 const orden = (arr) => arr.sort((a, b)  => b - a);
 console.log(orden(totalTimeMovies1(getHoraMovie(movies), getMinuteMovie(movies))));
  
+//case sensitive
 const nombre = (arr) => arr.filter((nameDirector) => nameDirector.director == ('Steven Spielberg'));
 console.log(nombre(movies));
+
+/* const together = (arr) => Object.keys(arr).reduce((access, keyValue) => (access[arr[keyValue].year] = [...(access[arr[keyValue]] || []), keyValue], access) , {});
+console.log(together(movies)) */
