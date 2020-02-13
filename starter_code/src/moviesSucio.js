@@ -226,3 +226,26 @@ console.log(nombre(movies));
 
 /* const together = (arr) => Object.keys(arr).reduce((access, keyValue) => (access[arr[keyValue].year] = [...(access[arr[keyValue]] || []), keyValue], access) , {});
 console.log(together(movies)) */
+
+/* const output = anys.map((objct, indx) =>{
+  let myObjct = [];
+  myObjct[notaza[indx]] = objct;
+  return myObjct;
+});
+console.log(output); */
+
+/* const groupYear = (arr) => arr.reduce((acc, any) =>{( acc[any.year] = acc[any.year] + 1 || 1 );
+  return acc;
+ } , {});
+ console.log(groupYear(movies)); */
+
+ /* var columns = ["Date", "Number", "Size", "Location", "Age"];
+var rows = ["2001", "5", "Big", "Sydney", "25"]; */
+/* const columns = yearMovies(movies);
+const rows = noteMovies(movies);
+const result =  rows.reduce((result, field, index) => {
+  result[columns[index]] = field;
+  return result;
+}, {})
+
+console.log(result); */
