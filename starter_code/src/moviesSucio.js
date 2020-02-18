@@ -239,6 +239,8 @@ console.log(output); */
  } , {});
  console.log(groupYear(movies)); */
 
+
+ // Mejor año
  /* var columns = ["Date", "Number", "Size", "Location", "Age"];
 var rows = ["2001", "5", "Big", "Sydney", "25"]; */
 /* const columns = yearMovies(movies);
@@ -249,3 +251,6 @@ const result =  rows.reduce((result, field, index) => {
 }, {})
 
 console.log(result); */
+
+//const merged = yearMovies(movies).reduce((obj, key, index) => ({ ...obj, [key]: noteMovies(movies)[index] }), {});
+//console.log(merged);

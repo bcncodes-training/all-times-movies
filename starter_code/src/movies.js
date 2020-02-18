@@ -82,10 +82,68 @@ let anys = listas1.set('year', yearMovies(movies));
 let notaza = listas1.set('rate', noteMovies(movies));
 
 
-console.log(listas);
-console.log(listas1);
+//console.log(listas);
+//console.log(anys);
+//console.log(notaza);
 //console.log(listas1.get('year'));
 
-for(let entry of listas){
-  console.log(entry);
+/* const juntos = () => {for(let entry of listas){
+  return entry;
+}};
+console.log(juntos(movies)); */
+
+/* const merged = yearMovies(movies).reduce((obj, key, index) => ({ ...obj, [key]: noteMovies(movies)[index] }), {});
+console.log(merged); */
+
+const merged1 = (arr1, arr2) => arr1.map((obj, key) => ({ ...obj, [obj]: arr2[key] }), {});
+console.log(merged1(yearMovies(movies), noteMovies(movies)));
+
+/* const str = (arr, arr1) => Object.keys(arr).map((key) => arr[key], arr1[key]);
+
+console.log(str(merged1(yearMovies(movies), noteMovies(movies)))); */
+
+/* const arr4 = merged1(yearMovies(movies), noteMovies(movies)).map((value, index) => [value]);
+console.log(arr4); */
+
+const object = Object.assign( ...merged1(yearMovies(movies), noteMovies(movies)));
+console.log(object);
+
+const count = (arr) => arr.reduce((a, b) => ({...a,
+  [b]: (a[b] || 0) + 1 
+}), {});
+console.log(count(yearMovies(movies)));
+
+
+const bestYear = (arr) =>{
+  let ratesYear   = [];
+  let moviesYear  = [];
+  let averageYear = [];
+
+  arr.map((data) =>{
+    if(ratesYear[data.year]){
+      moviesYear[data.year] += 1;
+      ratesYear[data.year] += parseFloat(data.rate);
+      averageYear[data.year] = parseFloat((ratesYear[data.year] / moviesYear[data.year]).toFixed(2))
+    } else {
+      ratesYear[data.year] = parseFloat(data.rate);
+      moviesYear[data.year] = 1;
+      averageYear[data.year] = parseFloat(data.rate)
+    }
+  });
+
+  const year = Object.keys(averageYear).reduce((a, b) =>{
+    if(averageYear[a] === averageYear[b]){
+      if(b < a) {
+        return b;
+      }
+      return a;
+
+    } else if(averageYear[a] > averageYear[b]){
+      return a;
+    }
+    return b;
+  });
+  return `The best year was ${year} with an average rate of ${averageYear[year]}`;
 };
+console.log(bestYear(movies))
+
