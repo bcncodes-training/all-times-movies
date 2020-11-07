@@ -1,5 +1,5 @@
 /* eslint no-restricted-globals: 'off' */
-
+"use strict"
  // Turn duration of the movies from hours to minutes 
 
  const getHoraMovie = (movieHour) => movieHour.map((data, idx, arr) => parseInt(data.duration, 10) * 60  );
